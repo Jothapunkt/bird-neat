@@ -4,16 +4,17 @@ import os
 import time
 import neat
 import pickle
+from sglobals import *
 
 class Floor:
     VEL = 5
 
-    def __init__(self, y, win, img):
-        self.img = img
+    def __init__(self, y):
+        self.img = base_img
         self.y = y
-        self.win = win
+        self.win = WIN
 
-        self.WIDTH = img.get_width()
+        self.WIDTH = self.img.get_width()
 
         self.x1 = 0
         self.x2 = self.WIDTH

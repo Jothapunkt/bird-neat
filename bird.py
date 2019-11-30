@@ -10,11 +10,11 @@ class Bird:
     MAX_ROTATION = 25
     ROT_VEL = 20
     ANIMATION_TIME = 5
-    GRAVITY = 1
+    GRAVITY = 0.8
 
-    def __init__(self, x, y, win, bird_images):
+    def __init__(self, x, y):
         self.IMGS = bird_images
-        self.win = win
+        self.win = WIN
         self.x = x
         self.y = y
         self.tilt = 0
@@ -66,9 +66,6 @@ class Bird:
             if (self.vspeed > 15):
                 self.vspeed = 15
 
-            if (self.y > FLOOR):
-                self.kill()
-
             if (self.y < 0):
                 self.y = 0
 
@@ -78,7 +75,3 @@ class Bird:
 
     def get_mask(self):
         return pygame.mask.from_surface(self.img)
-
-    def kill(self):
-        if (self.vspeed > 0):
-            self.vspeed = 0
